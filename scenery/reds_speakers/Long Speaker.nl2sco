@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <sceneobject>
+    <model path="models/long_speaker.dae">
+      <clip mesh="mount" distance="20"/>
+      <clip distance="70"/>
+    </model>
+    <description>A long, recollorable, outdoor style speaker, with angle and audio options.</description>
+    <preview>textures/previews/long_speaker.png</preview>
+    <usercolor>
+      <label>Mount Color</label>
+      <index>0</index>
+      <defaultcolor r="0.588235" g="0.588235" b="0.588235"/>
+    </usercolor>
+    <usercolor>
+      <label>Speaker Color</label>
+      <index>1</index>
+      <defaultcolor r="0.745098" g="0.745098" b="0.745098"/>
+    </usercolor>
+    <usercolor>
+      <label>Grill Color</label>
+      <index>2</index>
+      <defaultcolor r="0.960784" g="0.960784" b="0.960784"/>
+    </usercolor>
+    <script>
+      <classpath>scripts</classpath>
+      <class>RedsSpeakerHoriz</class>
+      <sharedvm>true</sharedvm>
+      <resource id="LICENSE">LICENSE</resource>
+    </script>
+    <scriptparameter>
+      <type>double</type>
+      <defaultvalue>0</defaultvalue>
+      <id>angle</id>
+      <description>This setting will only become visable in Play Mode. Angle in degrees from the default angle (can be negative as well).</description>
+      <label>Speaker Angle (Degrees):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type filetype="audio">resourcepath</type>
+      <defaultvalue>sounds/normal_loop.ogg</defaultvalue>
+      <id>audio_file</id>
+      <description>An Audio File that plays on loop, assuming no other events are occuring (ie. A specified coaster is E-Stopped),</description>
+      <label>Looped Audio (Leave empty for no sound):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type filetype="audio">resourcepath</type>
+      <defaultvalue>sounds/announcement.ogg</defaultvalue>
+      <id>audio_file_emergency</id>
+      <description>An Audio File that should be played when the specified coaster is E-Stopped.</description>
+      <label>E-Stop Audio (Leave empty for no sound):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type>coaster</type>
+      <id>coaster</id>
+      <description>Select the coaster that, when E-Stopped, will trigger the E-Stop Audio to play.</description>
+      <label>Coaster (Required for E-Stop Audio):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type filetype="audio">resourcepath</type>
+      <defaultvalue>sounds/trigger_example.ogg</defaultvalue>
+      <id>audio_file_trigger</id>
+      <description>An Audio File that should be played when the specified coaster trigger is activated.</description>
+      <label>Triggered Audio (Leave empty for no sound):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type>trigger</type>
+      <id>trigger</id>
+      <description>Select the trigger for a coaster that will mark when to play the Triggered Audio.</description>
+      <label>Trigger (Required for Triggered Audio):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type>double</type>
+      <defaultvalue>3</defaultvalue>
+      <id>range</id>
+      <description>Reference Range of the Audio (minimum hearable distance)</description>
+      <label>Audio Range (Meters):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type>double</type>
+      <defaultvalue>1</defaultvalue>
+      <id>falloff</id>
+      <description>Higher values let the sound become silent more quickly after the Range.</description>
+      <label>Falloff after Range:</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type>double</type>
+      <defaultvalue>0.8</defaultvalue>
+      <id>gain</id>
+      <description>Gain of the Audio. Higher values result in louder audio.</description>
+      <label>Audio Gain (0.0 to 1.0):</label>
+    </scriptparameter>
+    <scriptparameter>
+      <type>double</type>
+      <defaultvalue>1</defaultvalue>
+      <id>pitch</id>
+      <description>Pitch (Speed) of the Audio File</description>
+      <label>Audio Pitch (0.1 to 10.0):</label>
+    </scriptparameter>
+    <materialpath name="aluminum">textures/case_metal_light.nl2mat</materialpath>
+    <materialpath name="black">textures/plastic_black.nl2mat</materialpath>
+    <materialpath name="chrome">intern:data/materials/Chrome.nl2mat</materialpath>
+    <materialpath name="logo">textures/red_audio_logo.nl2mat</materialpath>
+    <materialpath name="mount">intern:data/materials/metal/Metal A User0.nl2mat</materialpath>
+    <materialpath name="plastic">textures/plastic_user1.nl2mat</materialpath>
+    <materialpath name="speaker_grill">textures/metal_grill_user2.nl2mat</materialpath>
+  </sceneobject>
+</root>

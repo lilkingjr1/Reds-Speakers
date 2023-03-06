@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <material>
+    <description>Matte plastic that is recolorable using the User 1 custom defined color, with a custom bump map.</description>
+    <preview>materials/outdoor_speaker_bump.jpg</preview>
+    <renderpass>
+      <shadercore>Result = Mul(Entity1, 0.7);
+Specular = 0;
+Roughness = 1;</shadercore>
+      <transparency mode="opaque"/>
+      <linearshading/>
+      <rgbgen mode="bumplighting"/>
+      <texunit>
+        <map>materials/outdoor_speaker_bump.jpg</map>
+        <bump mode="heightgloss" heightscale="10"/>
+        <tcgen mode="base"/>
+      </texunit>
+    </renderpass>
+  </material>
+</root>

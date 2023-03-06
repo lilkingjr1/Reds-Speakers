@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <material>
+    <description>Matte, black colored, plastic</description>
+    <renderpass>
+      <shadercore>Roughness = 1;
+Specular = 0;</shadercore>
+      <transparency mode="opaque"/>
+      <linearshading/>
+      <custommaterial>
+        <diffuse r="0.117647" g="0.109804" b="0.113725"/>
+        <ambient r="0.117647" g="0.109804" b="0.113725"/>
+        <specular r="0.117647" g="0.109804" b="0.113725"/>
+      </custommaterial>
+      <rgbgen mode="lighting"/>
+    </renderpass>
+  </material>
+</root>

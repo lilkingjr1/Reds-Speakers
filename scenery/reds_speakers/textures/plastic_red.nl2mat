@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <material>
+    <description>Matte, red colored, plastic</description>
+    <renderpass>
+      <shadercore>Roughness = 1;</shadercore>
+      <transparency mode="opaque"/>
+      <linearshading/>
+      <custommaterial>
+        <diffuse r="1" g="0" b="0"/>
+        <ambient r="1" g="0" b="0"/>
+      </custommaterial>
+      <rgbgen mode="lighting"/>
+    </renderpass>
+  </material>
+</root>

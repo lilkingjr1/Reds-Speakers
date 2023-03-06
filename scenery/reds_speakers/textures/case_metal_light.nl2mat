@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <material>
+    <description>Black textured metal (light).</description>
+    <preview>materials/metal_29_col.jpg</preview>
+    <renderpass>
+      <shadercore>Result = Add(0.1, tex0);
+Specular = Add(0.2, tex0);</shadercore>
+      <transparency mode="opaque"/>
+      <linearshading/>
+      <rgbgen mode="bumplighting"/>
+      <texunit>
+        <map>materials/metal_29_col.jpg</map>
+        <tcgen mode="base"/>
+      </texunit>
+      <texunit>
+        <map>materials/metal_29_nrm.jpg</map>
+        <bump mode="normalgloss"/>
+        <tcgen mode="base"/>
+      </texunit>
+    </renderpass>
+  </material>
+</root>

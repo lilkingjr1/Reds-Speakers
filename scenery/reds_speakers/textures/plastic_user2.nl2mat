@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <material>
+    <description>Matte plastic that is recolorable using the User 2 custom defined color.</description>
+    <renderpass>
+      <shadercore>Result = Mul(Entity2, 0.7);
+Specular = 0;
+Roughness = 1;</shadercore>
+      <transparency mode="opaque"/>
+      <linearshading/>
+      <rgbgen mode="bumplighting"/>
+      <texunit>
+        <map>materials/plastic_normal.jpg</map>
+        <bump mode="normalgloss"/>
+        <tcgen mode="base"/>
+      </texunit>
+    </renderpass>
+  </material>
+</root>

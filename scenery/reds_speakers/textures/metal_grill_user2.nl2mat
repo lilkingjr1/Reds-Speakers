@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <material>
+    <description>User 1 recolorable metal grill, with normal map.</description>
+    <preview>materials/metal_grill_ao.jpg</preview>
+    <renderpass>
+      <shadercore>tmp0 = Mul(entity2, tex0);
+Result = Mul(tmp0, tex1);
+Metallic = tex3;</shadercore>
+      <transparency mode="opaque"/>
+      <linearshading/>
+      <rgbgen mode="bumplighting"/>
+      <texunit>
+        <map>materials/metal_grill_color.jpg</map>
+        <tcgen mode="base"/>
+      </texunit>
+      <texunit>
+        <map>materials/metal_grill_ao.jpg</map>
+        <tcgen mode="base"/>
+      </texunit>
+      <texunit>
+        <map>materials/metal_grill_normal.jpg</map>
+        <bump mode="normalgloss"/>
+        <tcgen mode="base"/>
+      </texunit>
+      <texunit>
+        <map>materials/metal_grill_metallic.jpg</map>
+        <tcgen mode="base"/>
+      </texunit>
+    </renderpass>
+    <footstepsounds>
+      <footstepsound>intern:data/sounds/walk/metal1.wav</footstepsound>
+      <footstepsound>intern:data/sounds/walk/metal2.wav</footstepsound>
+      <footstepsound>intern:data/sounds/walk/metal3.wav</footstepsound>
+      <footstepsound>intern:data/sounds/walk/metal4.wav</footstepsound>
+    </footstepsounds>
+  </material>
+</root>

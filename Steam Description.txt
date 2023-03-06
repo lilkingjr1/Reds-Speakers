@@ -1,0 +1,49 @@
+[h1][u]Red's Speakers[/u][/h1]
+[quote][b]A small pack of various speakers to help you add that extra bit of detail & sound to your park! All speakers can play any sound/song that you specify, as well as an E-Stop sound for a specified ride.[/b][/quote]
+[i]Like what you see? Appreciate the work that went into making it?
+[img]https://i.imgur.com/ZpAhItL.gif[/img]
+Want to be even more awesome!? Supporting the project by donating helps me make more content like this in the future![/i]
+[url=https://www.paypal.com/donate?hosted_button_id=LT9DY39634NGL][img]https://i.imgur.com/aQKXQzV.png[/img][/url]
+[hr][/hr]
+[h1]What's Included:[/h1]
+[h3]Speakers:[/h3]
+[list]
+    [*]"JBL" Style Large Speaker
+    [*]Long/Tall Speaker
+    [*]Loud Speaker
+    [*]"Bose" Style Planter Speaker
+    [*]Small Speaker
+[/list]
+[h3]Features:[/h3]
+[list]
+    [*]Multiple textures able to be recolored.
+    [*]Speakers can be rotated upon their mounts.
+    [*]Choose any MP3 or OGG file to play on loop from the speaker.
+    [*]Choose any sound to play on loop during a specified coaster's E-Stop.
+    [*][NEW!] Choose any sound to play on-queue for a specified coaster trigger.
+    [*]All basic audio settings, like range, volume, pitch, etc, can be adjusted via object properties.
+[/list]
+
+The models are meant to be simple, relatively low-poly, and do not have massively detailed textures in effort to keep them efficient. Comment below if there is a specific speaker style you would like to see added to the pack!
+
+[hr][/hr]
+[h1]How to Extract:[/h1]
+[list]
+    [*]Open the park in your editor.
+    [*]Click on File > Extract Package, and choose where you want to save the park.
+    [*]Open the park in your File Explorer. Then open the scenery folder.
+    [*]Copy the reds_speakers folder to any park of your own that you want to use it with.
+[/list]
+
+[hr][/hr]
+[h1]Usage / License:[/h1]
+[list]
+    [*]All parts of this pack (models, scripts, etc.) are licensed under the MIT License.
+    [*]That means that this pack is pretty much completely open source and free to use however you want. Credit is not required, but always nice :)
+[/list]
+
+[hr][/hr]
+[h1]Credits:[/h1]
+[list]
+    [*]Based on [url=https://steamcommunity.com/profiles/76561197967797620/myworkshopfiles/?appid=301320]bestdani[/url]'s [url=https://steamcommunity.com/sharedfiles/filedetails/?id=921150269]97 degrees[/url] park's speakers. Scripts were inspired by his. Most included sounds are also from his speakers.
+[/list]

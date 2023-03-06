@@ -1,0 +1,9 @@
+// For when SketchUp is dumb and exports your element axis wrong...
+
+import com.nolimitscoaster.SceneObjectElement;
+
+public class RedsSpeakerHoriz extends RedsSpeaker {
+	protected void setSpeakerRotation(SceneObjectElement element, float radRotation){
+		element.setRotation(0.f, radRotation, 0.f);
+	}
+}
