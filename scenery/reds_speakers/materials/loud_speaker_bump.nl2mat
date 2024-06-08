@@ -2,7 +2,7 @@
 <root>
   <material>
     <description>Matte plastic that is recolorable using the User 1 custom defined color, with a custom bump map.</description>
-    <preview>materials/horn_speaker_bump.jpg</preview>
+    <preview>textures/horn_speaker_bump.jpg</preview>
     <renderpass>
       <shadercore>Result = Mul(Entity1, 0.7);
 Specular = 0;
@@ -11,7 +11,7 @@ Roughness = 1;</shadercore>
       <linearshading/>
       <rgbgen mode="bumplighting"/>
       <texunit>
-        <map>materials/horn_speaker_bump.jpg</map>
+        <map>textures/horn_speaker_bump.jpg</map>
         <bump mode="heightgloss" heightscale="10"/>
         <tcgen mode="base"/>
       </texunit>

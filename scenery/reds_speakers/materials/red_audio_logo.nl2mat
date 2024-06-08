@@ -2,7 +2,7 @@
 <root>
   <material>
     <description>Speaker logo with metallic effect.</description>
-    <preview>materials/horn_speaker_color.jpg</preview>
+    <preview>textures/logo.png</preview>
     <renderpass>
       <transparency mode="opaque"/>
       <custommaterial>
@@ -14,7 +14,7 @@
       <reflection fresnelconst="0.3" fresnelvar="0.7"/>
       <rgbgen mode="lighting"/>
       <texunit>
-        <map>materials/horn_speaker_color.jpg</map>
+        <map>textures/logo.png</map>
         <tcgen mode="base"/>
       </texunit>
     </renderpass>

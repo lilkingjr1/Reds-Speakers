@@ -10,7 +10,7 @@ Roughness = 1;</shadercore>
       <linearshading/>
       <rgbgen mode="bumplighting"/>
       <texunit>
-        <map>materials/plastic_normal.jpg</map>
+        <map>textures/plastic_normal.jpg</map>
         <bump mode="normalgloss"/>
         <tcgen mode="base"/>
       </texunit>
