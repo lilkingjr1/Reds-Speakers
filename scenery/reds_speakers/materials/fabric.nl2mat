@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
   <material>
-    <description>Black textured metal.</description>
-    <preview>materials/metal_29_col.jpg</preview>
+    <description>Speaker fabric.</description>
+    <preview>textures/fabric_29_col.jpg</preview>
     <renderpass>
       <shadercore>Result = tex0;
-Specular = Add(0.2, tex0);</shadercore>
+Specular = Add(0.03, tex0);
+Roughness = 0.75;</shadercore>
       <transparency mode="opaque"/>
       <linearshading/>
       <rgbgen mode="bumplighting"/>
       <texunit>
-        <map>materials/metal_29_col.jpg</map>
+        <map>textures/fabric_29_col.jpg</map>
         <tcgen mode="base"/>
       </texunit>
       <texunit>
-        <map>materials/metal_29_nrm.jpg</map>
+        <map>textures/fabric_29_nrm.jpg</map>
         <bump mode="normalgloss"/>
         <tcgen mode="base"/>
       </texunit>

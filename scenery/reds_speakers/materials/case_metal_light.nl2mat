@@ -2,7 +2,7 @@
 <root>
   <material>
     <description>Black textured metal (light).</description>
-    <preview>materials/metal_29_col.jpg</preview>
+    <preview>textures/metal_29_col.jpg</preview>
     <renderpass>
       <shadercore>Result = Add(0.1, tex0);
 Specular = Add(0.2, tex0);</shadercore>
@@ -10,11 +10,11 @@ Specular = Add(0.2, tex0);</shadercore>
       <linearshading/>
       <rgbgen mode="bumplighting"/>
       <texunit>
-        <map>materials/metal_29_col.jpg</map>
+        <map>textures/metal_29_col.jpg</map>
         <tcgen mode="base"/>
       </texunit>
       <texunit>
-        <map>materials/metal_29_nrm.jpg</map>
+        <map>textures/metal_29_nrm.jpg</map>
         <bump mode="normalgloss"/>
         <tcgen mode="base"/>
       </texunit>

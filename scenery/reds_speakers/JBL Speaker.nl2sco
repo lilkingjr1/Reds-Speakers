@@ -6,7 +6,7 @@
       <clip distance="70"/>
     </model>
     <description>A &quot;JBL&quot; style speaker, with recolorable mount, speaker rotation, and audio options.</description>
-    <preview>textures/previews/jbl_speaker.png</preview>
+    <preview>materials/previews/jbl_speaker.png</preview>
     <usercolor>
       <label>Mount Color</label>
       <index>0</index>
@@ -27,14 +27,14 @@
     </scriptparameter>
     <scriptparameter>
       <type filetype="audio">resourcepath</type>
-      <defaultvalue>sounds/normal_loop.ogg</defaultvalue>
+      <defaultvalue></defaultvalue>
       <id>audio_file</id>
       <description>An Audio File that plays on loop, assuming no other events are occuring (ie. A specified coaster is E-Stopped),</description>
       <label>Looped Audio (Leave empty for no sound):</label>
     </scriptparameter>
     <scriptparameter>
       <type filetype="audio">resourcepath</type>
-      <defaultvalue>sounds/announcement.ogg</defaultvalue>
+      <defaultvalue></defaultvalue>
       <id>audio_file_emergency</id>
       <description>An Audio File that should be played when the specified coaster is E-Stopped.</description>
       <label>E-Stop Audio (Leave empty for no sound):</label>
@@ -47,7 +47,7 @@
     </scriptparameter>
     <scriptparameter>
       <type filetype="audio">resourcepath</type>
-      <defaultvalue>sounds/trigger_example.ogg</defaultvalue>
+      <defaultvalue></defaultvalue>
       <id>audio_file_trigger</id>
       <description>An Audio File that should be played when the specified coaster trigger is activated.</description>
       <label>Triggered Audio (Leave empty for no sound):</label>
@@ -74,7 +74,7 @@
     </scriptparameter>
     <scriptparameter>
       <type>double</type>
-      <defaultvalue>0.8</defaultvalue>
+      <defaultvalue>1</defaultvalue>
       <id>gain</id>
       <description>Gain of the Audio. Higher values result in louder audio.</description>
       <label>Audio Gain (0.0 to 1.0):</label>
@@ -86,14 +86,14 @@
       <description>Pitch (Speed) of the Audio File</description>
       <label>Audio Pitch (0.1 to 10.0):</label>
     </scriptparameter>
-    <materialpath name="aluminum">textures/case_metal_light.nl2mat</materialpath>
-    <materialpath name="black">textures/plastic_black.nl2mat</materialpath>
-    <materialpath name="case_metal">textures/case_metal.nl2mat</materialpath>
+    <materialpath name="aluminum">materials/case_metal_light.nl2mat</materialpath>
+    <materialpath name="black">materials/plastic_black.nl2mat</materialpath>
+    <materialpath name="case_metal">materials/case_metal.nl2mat</materialpath>
     <materialpath name="chrome">intern:data/materials/Chrome.nl2mat</materialpath>
-    <materialpath name="fabric">textures/fabric.nl2mat</materialpath>
-    <materialpath name="logo">textures/red_audio_logo.nl2mat</materialpath>
+    <materialpath name="fabric">materials/fabric.nl2mat</materialpath>
+    <materialpath name="logo">materials/red_audio_logo.nl2mat</materialpath>
     <materialpath name="mount">intern:data/materials/metal/Metal A User0.nl2mat</materialpath>
-    <materialpath name="red_plastic">textures/plastic_red.nl2mat</materialpath>
-    <materialpath name="white_plastic">textures/plastic_white.nl2mat</materialpath>
+    <materialpath name="red_plastic">materials/plastic_red.nl2mat</materialpath>
+    <materialpath name="white_plastic">materials/plastic_white.nl2mat</materialpath>
   </sceneobject>
 </root>

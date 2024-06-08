@@ -2,7 +2,7 @@
 <root>
   <material>
     <description>User 1 recolorable metal grill, with normal map.</description>
-    <preview>materials/metal_grill_ao.jpg</preview>
+    <preview>textures/metal_grill_ao.jpg</preview>
     <renderpass>
       <shadercore>tmp0 = Mul(entity2, tex0);
 Result = Mul(tmp0, tex1);
@@ -11,20 +11,20 @@ Metallic = tex3;</shadercore>
       <linearshading/>
       <rgbgen mode="bumplighting"/>
       <texunit>
-        <map>materials/metal_grill_color.jpg</map>
+        <map>textures/metal_grill_color.jpg</map>
         <tcgen mode="base"/>
       </texunit>
       <texunit>
-        <map>materials/metal_grill_ao.jpg</map>
+        <map>textures/metal_grill_ao.jpg</map>
         <tcgen mode="base"/>
       </texunit>
       <texunit>
-        <map>materials/metal_grill_normal.jpg</map>
+        <map>textures/metal_grill_normal.jpg</map>
         <bump mode="normalgloss"/>
         <tcgen mode="base"/>
       </texunit>
       <texunit>
-        <map>materials/metal_grill_metallic.jpg</map>
+        <map>textures/metal_grill_metallic.jpg</map>
         <tcgen mode="base"/>
       </texunit>
     </renderpass>
