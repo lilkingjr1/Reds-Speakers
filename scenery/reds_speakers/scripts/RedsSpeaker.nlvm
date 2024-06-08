@@ -23,116 +23,115 @@ import com.nolimitscoaster.TrackTrigger;
 import com.nolimitscoaster.TrackTriggerListener;
 import nlvm.lang.Math;
 import nlvm.lang.Double;
-import nlvm.lang.String;
 
 public class RedsSpeaker extends Script implements TrackTriggerListener {
 	private static final String SCRIPT_NAME = "RedsSpeaker";		// Script name for debugging
 	private static final String SPEAKER_ELEMENT_NAME = "speaker";	// Name of the speaker element in the SCO/model
-    private static final float SOUND_RANGE = 3.0f;					// Default range for sound
-    private static final float SOUND_FALLOFF = 1.0f;				// Default falloff for sound
-    private static final float SOUND_GAIN = 0.8f;					// Default gain for sound
-    private static final float SOUND_PITCH = 1.0f;					// Default pitch for sound
+	private static final float SOUND_RANGE = 3.0f;					// Default range for sound
+	private static final float SOUND_FALLOFF = 1.0f;				// Default falloff for sound
+	private static final float SOUND_GAIN = 0.8f;					// Default gain for sound
+	private static final float SOUND_PITCH = 1.0f;					// Default pitch for sound
 
-    private Coaster coaster;
-    private StaticSound soundNormal;
-    private StaticSound soundEmergency;
-    private StaticSound soundTrigger;
+	private Coaster coaster;
+	private StaticSound soundNormal;
+	private StaticSound soundEmergency;
+	private StaticSound soundTrigger;
 
-    public bool onInit() {
-        SceneObject sco = sim.getSceneObjectForEntityId(getParentEntityId());
-        if (sco == null){
-            System.err.println(SCRIPT_NAME + ": This script only works with NL2 scene objects");
+	public bool onInit() {
+		SceneObject sco = sim.getSceneObjectForEntityId(getParentEntityId());
+		if (sco == null){
+			System.err.println(SCRIPT_NAME + ": This script only works with NL2 scene objects");
 			return false;
-        }
+		}
 		SceneObjectElement speaker = sco.getElementForName(SPEAKER_ELEMENT_NAME);
-        if (speaker == null){
-            System.err.println(SCRIPT_NAME + ": Wrong 3d model loaded (Cannot find \"" + SPEAKER_ELEMENT_NAME + "\" element)");
+		if (speaker == null){
+			System.err.println(SCRIPT_NAME + ": Wrong 3d model loaded (Cannot find \"" + SPEAKER_ELEMENT_NAME + "\" element)");
 			return false;
-        }
+		}
 		
 		float radRotation = sco.getDoubleParameter("angle") != null ? (float)Math.toRadians(sco.getDoubleParameter("angle").doubleValue()) : 0;
 		setSpeakerRotation(speaker, radRotation);		
 		
-        assignOptionalSoundsFromParameters(sco);
-        assignSoundSettingsFromParmeters(sco, speaker);
-        if (soundNormal != null){
-            soundNormal.playLoop();
-        }
+		assignOptionalSoundsFromParameters(sco);
+		assignSoundSettingsFromParameters(sco, speaker);
+		if (soundNormal != null){
+			soundNormal.playLoop();
+		}
 		
-        return true;
-    }
+		return true;
+	}
 	
 	protected void setSpeakerRotation(SceneObjectElement element, float radRotation){
 		element.setRotation(radRotation, 0.f, 0.f);
 	}
 
-    private void assignOptionalSoundsFromParameters(SceneObject sco){
-        ResourcePath normalResource = sco.getResourcePathParameter("audio_file");
-        if (normalResource != null){
-            soundNormal = StaticSound.loadFromResource(normalResource, StaticSound.FLAG_MIXDOWN_MONO);
-        }
+	private void assignOptionalSoundsFromParameters(SceneObject sco){
+		ResourcePath normalResource = sco.getResourcePathParameter("audio_file");
+		if (normalResource != null){
+			soundNormal = StaticSound.loadFromResource(normalResource, StaticSound.FLAG_MIXDOWN_MONO);
+		}
 
-        ResourcePath emergencyResource = sco.getResourcePathParameter("audio_file_emergency");
+		ResourcePath emergencyResource = sco.getResourcePathParameter("audio_file_emergency");
 		coaster = sco.getCoasterParameter("coaster");
-        if (emergencyResource != null && coaster != null){
-            soundEmergency = StaticSound.loadFromResource(emergencyResource, StaticSound.FLAG_MIXDOWN_MONO);
-        }
+		if (emergencyResource != null && coaster != null){
+			soundEmergency = StaticSound.loadFromResource(emergencyResource, StaticSound.FLAG_MIXDOWN_MONO);
+		}
 
-        ResourcePath triggerResource = sco.getResourcePathParameter("audio_file_trigger");
+		ResourcePath triggerResource = sco.getResourcePathParameter("audio_file_trigger");
 		TrackTrigger trigger = sco.getTrackTriggerParameter("trigger");
-        if (triggerResource != null && trigger != null){
-            soundTrigger = StaticSound.loadFromResource(triggerResource, StaticSound.FLAG_MIXDOWN_MONO);
+		if (triggerResource != null && trigger != null){
+			soundTrigger = StaticSound.loadFromResource(triggerResource, StaticSound.FLAG_MIXDOWN_MONO);
 			trigger.addTrackTriggerListener(this);
-        }
-    }
+		}
+	}
 
-    private void assignSoundSettingsFromParmeters(SceneObject sco, SceneObjectElement element){
-        if (soundNormal != null){
-            soundNormal.setDistanceParameters(
-                    getFloatParameterOrDefault(sco, "range", SOUND_RANGE),
-                    getFloatParameterOrDefault(sco, "falloff", SOUND_FALLOFF)
-            );
-            soundNormal.setGain(getFloatParameterOrDefault(sco, "gain", SOUND_GAIN));
-            soundNormal.setPitch(getFloatParameterOrDefault(sco, "pitch", SOUND_PITCH));
-            soundNormal.setPosition(element.getAbsoluteMatrix().getTrans());
+	private void assignSoundSettingsFromParameters(SceneObject sco, SceneObjectElement element){
+		if (soundNormal != null){
+			soundNormal.setDistanceParameters(
+				getFloatParameterOrDefault(sco, "range", SOUND_RANGE),
+				getFloatParameterOrDefault(sco, "falloff", SOUND_FALLOFF)
+			);
+			soundNormal.setGain(getFloatParameterOrDefault(sco, "gain", SOUND_GAIN));
+			soundNormal.setPitch(getFloatParameterOrDefault(sco, "pitch", SOUND_PITCH));
+			soundNormal.setPosition(element.getAbsoluteMatrix().getTrans());
 			soundNormal.setDopplerMode(false);
 			soundNormal.setEnvironmentMode(StaticSound.E_ENVMODE_LOCAL);
-        }
+		}
 		
-        if (soundEmergency != null){
-            soundEmergency.setDistanceParameters(
-                    getFloatParameterOrDefault(sco, "range", SOUND_RANGE),
-                    getFloatParameterOrDefault(sco, "falloff", SOUND_FALLOFF)
-            );
-            soundEmergency.setGain(getFloatParameterOrDefault(sco, "gain", SOUND_GAIN));
-            soundEmergency.setPitch(getFloatParameterOrDefault(sco, "pitch", SOUND_PITCH));
-            soundEmergency.setPosition(element.getAbsoluteMatrix().getTrans());
+		if (soundEmergency != null){
+			soundEmergency.setDistanceParameters(
+				getFloatParameterOrDefault(sco, "range", SOUND_RANGE),
+				getFloatParameterOrDefault(sco, "falloff", SOUND_FALLOFF)
+			);
+			soundEmergency.setGain(getFloatParameterOrDefault(sco, "gain", SOUND_GAIN));
+			soundEmergency.setPitch(getFloatParameterOrDefault(sco, "pitch", SOUND_PITCH));
+			soundEmergency.setPosition(element.getAbsoluteMatrix().getTrans());
 			soundEmergency.setDopplerMode(false);
 			soundEmergency.setEnvironmentMode(StaticSound.E_ENVMODE_LOCAL);
-        }
+		}
 		
 		if (soundTrigger != null){
-            soundTrigger.setDistanceParameters(
-                    getFloatParameterOrDefault(sco, "range", SOUND_RANGE),
-                    getFloatParameterOrDefault(sco, "falloff", SOUND_FALLOFF)
-            );
-            soundTrigger.setGain(getFloatParameterOrDefault(sco, "gain", SOUND_GAIN));
-            soundTrigger.setPitch(getFloatParameterOrDefault(sco, "pitch", SOUND_PITCH));
-            soundTrigger.setPosition(element.getAbsoluteMatrix().getTrans());
+			soundTrigger.setDistanceParameters(
+				getFloatParameterOrDefault(sco, "range", SOUND_RANGE),
+				getFloatParameterOrDefault(sco, "falloff", SOUND_FALLOFF)
+			);
+			soundTrigger.setGain(getFloatParameterOrDefault(sco, "gain", SOUND_GAIN));
+			soundTrigger.setPitch(getFloatParameterOrDefault(sco, "pitch", SOUND_PITCH));
+			soundTrigger.setPosition(element.getAbsoluteMatrix().getTrans());
 			soundTrigger.setDopplerMode(false);
 			soundTrigger.setEnvironmentMode(StaticSound.E_ENVMODE_LOCAL);
-        }
-    }
+		}
+	}
 
-    private float getFloatParameterOrDefault(SceneObject sco, String parameterName, float defaultValue){
-        Double parameter = sco.getDoubleParameter(parameterName);
-        if (parameter != null){
-            return parameter.floatValue();
-        }
+	private float getFloatParameterOrDefault(SceneObject sco, String parameterName, float defaultValue){
+		Double parameter = sco.getDoubleParameter(parameterName);
+		if (parameter != null){
+			return parameter.floatValue();
+		}
 		else{
-            return defaultValue;
-        }
-    }
+			return defaultValue;
+		}
+	}
 	
 	public void onTrainEntering(TrackTrigger trigger, Train train){
 		soundTrigger.play();
@@ -142,25 +141,25 @@ public class RedsSpeaker extends Script implements TrackTriggerListener {
 		// Do nothing! :D
 	}
 
-    public void onNextFrame(float tick){
-        if (coaster != null && coaster.isEmergencyStop()){
-            if (soundEmergency != null){
-                soundEmergency.playLoop();
-            }
-            if (soundNormal != null){
-                soundNormal.stop();
-            }
+	public void onNextFrame(float tick){
+		if (coaster != null && coaster.isEmergencyStop()){
+			if (soundEmergency != null){
+				soundEmergency.playLoop();
+			}
+			if (soundNormal != null){
+				soundNormal.stop();
+			}
 			if (soundTrigger != null){
 				soundTrigger.stop();
 			}
-        }
+		}
 		else{
-            if (soundEmergency != null){
-                soundEmergency.stop();
-            }
-            if (soundNormal != null){
-                soundNormal.playLoop();
-            }
-        }
-    }
+			if (soundEmergency != null){
+				soundEmergency.stop();
+			}
+			if (soundNormal != null){
+				soundNormal.playLoop();
+			}
+		}
+	}
 }
