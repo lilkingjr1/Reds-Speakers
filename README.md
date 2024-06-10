@@ -1,4 +1,4 @@
-![Red's Speakers](/scenery/reds_speakers/textures/previews/overview.jpg?raw=true)
+![Red's Speakers](/scenery/reds_speakers/materials/previews/overview.jpg?raw=true)
 
 ___
 
